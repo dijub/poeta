@@ -90,7 +90,7 @@ class Menu:
                 cmd, value = arg.split("=", 1)
                 cmd_obj = self._get_cmd(cmd)
                 poeta_args[cmd_obj.get_clean_cmd()] = value.lower()
-            elif "-" in arg:
+            elif arg.startswith("-"):
                 cmd_obj = self._get_cmd(arg)
                 value = args[i + 1]
                 if cmd_obj.validation:
