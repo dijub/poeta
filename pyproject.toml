@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "poeta"
+version = "0.2.0"
+description = "Poetry abstaction to make fast web app"
+authors = ["dijub <diego_insaurralde@live.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+poeta = "poeta.main:main"

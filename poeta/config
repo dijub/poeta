@@ -1,0 +1,24 @@
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "-p no:warnings"
+
+[tool.ruff]
+extend-exclude = ["{exclude_cmd}"]
+line-length = 88
+
+[tool.ruff.lint]
+preview = true
+select = ["I", "F", "E", "W", "PL", "PT"]
+
+[tool.ruff.format]
+preview = true
+quote-style = "single"
+
+[tool.taskipy.tasks]
+docs = "mkdocs serve"
+lint = "ruff check .; ruff check . --diff"
+format = "ruff check . --fix; ruff format ."
+run = "{run_cmd}"
+pre_test = "task lint"
+test = "pytest -s -x --cov={folder_name} -vv"
+post_test = "coverage html"
